@@ -54,7 +54,7 @@ interface ต่างๆ ภายในเกม
 # Team Members
 |Name|Surname|GitHub|Student ID|
 |--|------|---------------|---------|
-|Pakapat|Vongsattatikhun|[@tungxyz191](https://github.com/tungxyz191)|60070151|
+|Pakapat|Vongsattatikhun|[@tungxyz191](https://github.com/tungxyz191)|61070151|
 |Sutha|Binkamit|[@sutha001](https://github.com/sutha001)|61070248|
 |Salanyapong|Janprik|[@OatHostdm](https://github.com/OatHostdm)|61070347|
 |Rachata|Pangkariya|[@61070348](https://github.com/61070348)|60070348| 

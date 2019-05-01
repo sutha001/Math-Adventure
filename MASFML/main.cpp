@@ -60,6 +60,101 @@ srand(time(NULL));
 	sf::Texture LoseTexture;
 	sf::Sprite lose;
 
+	sf::Texture enemybar1Texture;
+	sf::Sprite enemybar1;
+	sf::Texture enemybar2Texture;
+	sf::Sprite enemybar2;
+	sf::Texture enemybar3Texture;
+	sf::Sprite enemybar3;
+	sf::Texture enemybar4Texture;
+	sf::Sprite enemybar4;
+
+	sf::Texture playerbar1Texture;
+	sf::Sprite playerbar1;
+	sf::Texture playerbar2Texture;
+	sf::Sprite playerbar2;
+	sf::Texture playerbar3Texture;
+	sf::Sprite playerbar3;
+	sf::Texture playerbar4Texture;
+	sf::Sprite playerbar4;
+
+	enemybar1.setPosition(620.0f, 270.0f);
+	enemybar2.setPosition(620.0f, 270.0f);
+	enemybar3.setPosition(620.0f, 270.0f);
+	enemybar4.setPosition(620.0f, 270.0f);
+
+	playerbar1.setPosition(80.0f, 270.0f);
+	playerbar2.setPosition(80.0f, 270.0f);
+	playerbar3.setPosition(80.0f, 270.0f);
+	playerbar4.setPosition(80.0f, 270.0f);
+
+	if (!playerbar1Texture.loadFromFile("image/player_bar1.png"))
+	{
+		return -1;
+	}
+	else
+	{
+		playerbar1.setTexture(playerbar1Texture);
+	}
+	if (!playerbar2Texture.loadFromFile("image/player_bar2.png"))
+	{
+		return -1;
+	}
+	else
+	{
+		playerbar2.setTexture(playerbar2Texture);
+	}
+	if (!playerbar3Texture.loadFromFile("image/player_bar3.png"))
+	{
+		return -1;
+	}
+	else
+	{
+		playerbar3.setTexture(playerbar3Texture);
+	}
+	if (!playerbar4Texture.loadFromFile("image/player_bar4.png"))
+	{
+		return -1;
+	}
+	else
+	{
+		playerbar4.setTexture(playerbar4Texture);
+	}
+
+	if (!enemybar1Texture.loadFromFile("image/enemy_bar1.png"))
+	{
+		return -1;
+	}
+	else
+	{
+		enemybar1.setTexture(enemybar1Texture);
+	}
+	if (!enemybar2Texture.loadFromFile("image/enemy_bar2.png"))
+	{
+		return -1;
+	}
+	else
+	{
+		enemybar2.setTexture(enemybar2Texture);
+	}
+	if (!enemybar3Texture.loadFromFile("image/enemy_bar3.png"))
+	{
+		return -1;
+	}
+	else
+	{
+		enemybar3.setTexture(enemybar3Texture);
+	}
+	if (!enemybar4Texture.loadFromFile("image/enemy_bar4.png"))
+	{
+		return -1;
+	}
+	else
+	{
+		enemybar4.setTexture(enemybar4Texture);
+	}
+
+
 	if (!WinTexture.loadFromFile("image/WIN.png"))
 	{
 		return -1;
@@ -106,14 +201,20 @@ srand(time(NULL));
 	}
 	sf::Text textx;
 	sf::Text texty;
+	sf::Text texta;
+	sf::Text textb;
 	sf::Text emblemtext;
 	sf::Text text1;
 	sf::Text HPP;
 	sf::Text HPE;
 	int x = rand() % 50;
 	int y = rand() % 50;
+	int a = rand() % 13;
+	int b = rand() % 13;
+
 	int playerHP = 100;
-	int enemyHP = 500;
+	int enemyHP = 300;
+
 	int result;
 	string emblem = "";
 
@@ -124,7 +225,7 @@ srand(time(NULL));
 
 
 	int number = 0;
-	int z = rand() % 2;
+	int z = rand() % 3;
 
 	if (z == 0)
 	{
@@ -138,18 +239,22 @@ srand(time(NULL));
 	}
 	else if (z == 2)
 	{
-		number = x * y;
+		number = a * b;
 		emblem = "X";
 	}
 
 	string numx;
 	string numy;
+	string numa;
+	string numb;
 	string display = "";
 	string HPplayer = "";
 	string HPenemy = "";
 
 	numx = to_string(x);
 	numy = to_string(y);
+	numa = to_string(a);
+	numb = to_string(b);
 	HPplayer = to_string(playerHP);
 	HPenemy = to_string(enemyHP);
 
@@ -301,6 +406,22 @@ srand(time(NULL));
 				{
 					give++;
 				}
+				if (evnt.key.code == sf::Keyboard::R)
+				{
+					if (display != "" || playerHP == 0 || enemyHP == 0)
+					{
+						playerHP = stoi(HPplayer);
+						playerHP = 100;
+						HPplayer = to_string(playerHP);
+						enemyHP = stoi(HPenemy);
+						enemyHP = 300;
+						HPenemy = to_string(enemyHP);
+
+					}
+					else
+					{
+					}
+				}
 				if (evnt.key.code == sf::Keyboard::Return)
 				{
 					if (display != "")
@@ -315,6 +436,8 @@ srand(time(NULL));
 							HPenemy = to_string(enemyHP);
 							x = rand() % 50;
 							y = rand() % 50;
+							a = rand() % 13;
+							b = rand() % 13;
 							emblem = "";
 							numx;
 							numy;
@@ -325,23 +448,25 @@ srand(time(NULL));
 
 							numx = to_string(x);
 							numy = to_string(y);
+							numa = to_string(a);
+							numb = to_string(b);
 
-							int zz = rand() % 2;
+							z = rand() % 3;
 							number = 0;
 
-							if (zz == 0)
+							if (z == 0)
 							{
 								number = x + y;
 								emblem = "+";
 							}
-							else if (zz == 1)
+							else if (z == 1)
 							{
 								number = x - y;
 								emblem = "-";
 							}
-							else if (zz == 2)
+							else if (z == 2)
 							{
-								number = x * y;
+								number = a * b;
 								emblem = "X";
 							}
 							display = "";
@@ -353,11 +478,10 @@ srand(time(NULL));
 							playerHP = stoi(HPplayer);
 							playerHP = playerHP - 20;
 							HPplayer = to_string(playerHP);
-							enemyHP = stoi(HPenemy);
-							enemyHP = enemyHP - 20;
-							HPenemy = to_string(enemyHP);
 							x = rand() % 50;
 							y = rand() % 50;
+							a = rand() % 13;
+							b = rand() % 13;
 							emblem = "";
 							numx;
 							numy;
@@ -368,23 +492,25 @@ srand(time(NULL));
 
 							numx = to_string(x);
 							numy = to_string(y);
+							numa = to_string(a);
+							numb = to_string(b);
 
-							int zz = rand() % 2;
+							z = rand() % 3;
 							number = 0;
 
-							if (zz == 0)
+							if (z == 0)
 							{
 								number = x + y;
 								emblem = "+";
 							}
-							else if (zz == 1)
+							else if (z == 1)
 							{
 								number = x - y;
 								emblem = "-";
 							}
-							else if (zz == 2)
+							else if (z == 2)
 							{
-								number = x * y;
+								number = a * b;
 								emblem = "X";
 							}
 							display = "";
@@ -407,14 +533,28 @@ srand(time(NULL));
 		textx.setCharacterSize(70);
 		textx.setFillColor(sf::Color::Black);
 		textx.setStyle(sf::Text::Bold);
-		textx.setPosition(150.0f, 100.0f);
+		textx.setPosition(200.0f, 30.0f);
+
+		texta.setFont(font);
+		texta.setString(numa);
+		texta.setCharacterSize(70);
+		texta.setFillColor(sf::Color::Black);
+		texta.setStyle(sf::Text::Bold);
+		texta.setPosition(200.0f, 30.0f);
 
 		texty.setFont(font);
 		texty.setString(numy);
 		texty.setCharacterSize(70);
 		texty.setFillColor(sf::Color::Black);
 		texty.setStyle(sf::Text::Bold);
-		texty.setPosition(550.0f, 100.0f);
+		texty.setPosition(480.0f, 30.0f);
+
+		textb.setFont(font);
+		textb.setString(numb);
+		textb.setCharacterSize(70);
+		textb.setFillColor(sf::Color::Black);
+		textb.setStyle(sf::Text::Bold);
+		textb.setPosition(480.0f, 30.0f);
 
 
 		emblemtext.setFont(font);
@@ -422,28 +562,26 @@ srand(time(NULL));
 		emblemtext.setCharacterSize(50);
 		emblemtext.setFillColor(sf::Color::Black);
 		emblemtext.setStyle(sf::Text::Bold);
-		emblemtext.setPosition(380.0f, 120.0f);
+		emblemtext.setPosition(360.0f, 40.0f);
 
 		text1.setString(display);
 		text1.setFont(font);
-		text1.setPosition(250, 520);
+		text1.setPosition(300, 530);
 		text1.setCharacterSize(50);
 		text1.setFillColor(sf::Color::Black);
 		text1.setStyle(sf::Text::Bold);
 
 		HPP.setString(HPplayer);
 		HPP.setFont(font);
-		HPP.setPosition(50, 250);
-		HPP.setCharacterSize(50);
+		HPP.setPosition(90, 250);
+		HPP.setCharacterSize(20);
 		HPP.setFillColor(sf::Color::Black);
-		HPP.setStyle(sf::Text::Bold);
 
 		HPE.setString(HPenemy);
 		HPE.setFont(font);
-		HPE.setPosition(600, 250);
-		HPE.setCharacterSize(50);
+		HPE.setPosition(620, 250);
+		HPE.setCharacterSize(20);
 		HPE.setFillColor(sf::Color::Black);
-		HPE.setStyle(sf::Text::Bold);
 
 		stateef = bloodall.Update(stateef, deltaTime, stateef);
 		stateat = animation.Update(stateat, deltaTime, stateat);
@@ -458,21 +596,66 @@ srand(time(NULL));
 		window.draw(background);
 		window.draw(player);
 		window.draw(enemy1);
-		window.draw(textx);
-		window.draw(texty);
+		if (z == 2)
+		{
+			window.draw(texta);
+			window.draw(textb);
+		}
+		else
+		{
+			window.draw(textx);
+			window.draw(texty);
+		}
+
 		window.draw(text1);
 		window.draw(emblemtext);
 		window.draw(HPP);
 		window.draw(HPE);
 
+		if (enemyHP == 300 || enemyHP == 280 || enemyHP == 260 || enemyHP == 240 || enemyHP == 220)
+		{
+			window.draw(enemybar1);
+		}
+		else if (enemyHP == 200 || enemyHP == 180 || enemyHP == 160 || enemyHP == 140 || enemyHP == 120)
+		{
+			window.draw(enemybar2);
+		}
+		else if (enemyHP == 100 || enemyHP == 80 || enemyHP == 60 || enemyHP == 40)
+		{
+			window.draw(enemybar3);
+		}
+		else if (enemyHP == 20)
+		{
+			window.draw(enemybar4);
+		}
+
+		if (playerHP == 100 && playerHP > 80)
+		{
+			window.draw(playerbar1);
+		}
+		else if (playerHP == 80 && playerHP > 60)
+		{
+			window.draw(playerbar2);
+		}
+		else if (playerHP == 60 && playerHP > 20)
+		{
+			window.draw(playerbar3);
+		}
+		else if (playerHP = 20 && playerHP > 0)
+		{
+			window.draw(playerbar4);
+		}
+
 		if (give == 0)
 		{
 			window.draw(menu);
 		}
+
 		if (playerHP == 0)
 		{
 			window.draw(lose);
 		}
+
 		else if (enemyHP == 0)
 		{
 			window.draw(win);

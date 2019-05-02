@@ -47,7 +47,7 @@ interface ต่างๆ ภายในเกม
 src="https://www.youtube.com/embed/MUQfKFzIOeU" 
 frameborder="0" 
 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-allowfullscreen></iframe
+allowfullscreen></iframe>
 
 # NOTE!
 

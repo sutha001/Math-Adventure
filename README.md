@@ -43,13 +43,11 @@ interface ต่างๆ ภายในเกม
 <p align="left"> <img src="images/Interface.png" width="400"></p>
 <p align="left"> <img src="images/WIN.png" width="400"></p>
 <p align="left"> <img src="images/LOSE.png" width="400"></p>
-<object width="425" height="350">
-  <param name="movie" value="http://www.youtube.com/user/wwwLoveWatercom?v=BTRN1YETpyg" />
-  <param name="wmode" value="transparent" />
-  <embed src="http://www.youtube.com/user/wwwLoveWatercom?v=BTRN1YETpyg"
-         type="application/x-shockwave-flash"
-         wmode="transparent" width="425" height="350" />
-</object>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/MUQfKFzIOeU" 
+frameborder="0" 
+allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+allowfullscreen></iframe
 
 # NOTE!
 

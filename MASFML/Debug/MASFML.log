@@ -1,3 +1,3 @@
 ﻿  main.cpp
-c:\users\user\desktop\masfml\masfml\main.cpp(18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  MASFML.vcxproj -> C:\Users\User\Desktop\MASFML\Debug\MASFML.exe
+c:\users\user\desktop\math-adventure-master\masfml\main.cpp(18): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  MASFML.vcxproj -> C:\Users\User\Desktop\Math-Adventure-master\Debug\MASFML.exe

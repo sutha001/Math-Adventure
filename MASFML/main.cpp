@@ -15,7 +15,7 @@ using namespace std;
 
 int main()
 {
-srand(time(NULL));
+	srand(time(NULL));
 	sf::RenderWindow window(sf::VideoMode(800, 600), "MATH ADVENTURE", sf::Style::Close | sf::Style::Resize);
 	sf::RectangleShape player(sf::Vector2f(100.0f, 150.0f));
 	sf::RectangleShape enemy1(sf::Vector2f(100.0f, 150.0f));
@@ -260,8 +260,9 @@ srand(time(NULL));
 
 	sf::SoundBuffer buffer;
 	sf::SoundBuffer buffer2;
-
-
+	sf::SoundBuffer keybuf;
+	sf::SoundBuffer enbuf;
+	sf::SoundBuffer backbuf;
 
 	if (!MenuTexture.loadFromFile("image/menu.png"))
 	{
@@ -271,11 +272,16 @@ srand(time(NULL));
 	{
 		menu.setTexture(MenuTexture);
 	}
-
 	sf::Sound sound;
 	sf::Sound sound2;
+	sf::Sound keynum;
+	sf::Sound enter;
+	sf::Sound backsp;
 	sound.setBuffer(buffer);
 	sound2.setBuffer(buffer2);
+	keynum.setBuffer(keybuf);
+	enter.setBuffer(enbuf);
+	backsp.setBuffer(backbuf);
 	if (!buffer.loadFromFile("Sound/player.wav"))
 	{
 		return -1;
@@ -284,6 +290,19 @@ srand(time(NULL));
 	{
 		return -1;
 	}
+	if (!keybuf.loadFromFile("Sound/Key.wav"))
+	{
+		return -1;
+	}
+	if (!enbuf.loadFromFile("Sound/Enter.wav"))
+	{
+		return -1;
+	}
+	if (!backbuf.loadFromFile("Sound/backsp.wav"))
+	{
+		return -1;
+	}
+
 	sf::Music music;
 
 	if (!music.openFromFile("Sound/background.wav")) {
@@ -298,6 +317,8 @@ srand(time(NULL));
 	int stateat = 0;
 	int stateaten = 0;
 	int stateef = 0;
+
+	int check = 0;
 
 	int give = 0;
 
@@ -319,95 +340,158 @@ srand(time(NULL));
 				}
 				if (evnt.key.code == sf::Keyboard::Numpad0)
 				{
-					display = display + "0";
-					
+					if (check != 0) {
+						display = display + "0";
+						keynum.play();
+					}
+
 				}
 				if (evnt.key.code == sf::Keyboard::Numpad1)
 				{
-					display = display + "1";
+					if (check != 0) {
+						display = display + "1";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Numpad2)
 				{
-					display = display + "2";
+					if (check != 0) {
+						display = display + "2";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Numpad3)
 				{
-					display = display + "3";
+					if (check != 0) {
+						display = display + "3";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Numpad4)
 				{
-					display = display + "4";
+					if (check != 0) {
+						display = display + "4";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Numpad5)
 				{
-					display = display + "5";
+					if (check != 0) {
+						display = display + "5";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Numpad6)
 				{
-					display = display + "6";
+					if (check != 0) {
+						display = display + "6";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Numpad7)
 				{
-					display = display + "7";
+					if (check != 0) {
+						display = display + "7";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Numpad8)
 				{
-					display = display + "8";
+					if (check != 0) {
+						display = display + "8";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Numpad9)
 				{
-					display = display + "9";
+					if (check != 0) {
+						display = display + "9";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Num0)
 				{
-					display = display + "0";
+					if (check != 0) {
+						display = display + "0";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Num1)
 				{
-					display = display + "1";
+					if (check != 0) {
+						display = display + "1";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Num2)
 				{
-					display = display + "2";
+					if (check != 0) {
+						display = display + "2";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Num3)
 				{
-					display = display + "3";
+					if (check != 0) {
+						display = display + "3";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Num4)
 				{
-					display = display + "4";
+					if (check != 0) {
+						display = display + "4";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Num5)
 				{
-					display = display + "5";
+					if (check != 0) {
+						display = display + "5";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Num6)
 				{
-					display = display + "6";
+					if (check != 0) {
+						display = display + "6";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Num7)
 				{
-					display = display + "7";
+					if (check != 0) {
+						display = display + "7";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Num8)
 				{
-					display = display + "8";
+					if (check != 0) {
+						display = display + "8";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::Num9)
 				{
-					display = display + "9";
+					if (check != 0) {
+						display = display + "9";
+						keynum.play();
+					}
 				}
 				if (evnt.key.code == sf::Keyboard::BackSpace)
 				{
+					backsp.play();
 					display = "";
 				}
 				if (evnt.key.code == sf::Keyboard::Space)
 				{
+					check = 1;
 					give++;
 				}
 				if (evnt.key.code == sf::Keyboard::R)
 				{
+					keynum.play();
 					if (display != "" || playerHP == 0 || enemyHP == 0)
 					{
 						playerHP = stoi(HPplayer);
@@ -416,6 +500,7 @@ srand(time(NULL));
 						enemyHP = stoi(HPenemy);
 						enemyHP = 300;
 						HPenemy = to_string(enemyHP);
+						check = 1;
 
 					}
 					else
@@ -424,6 +509,7 @@ srand(time(NULL));
 				}
 				if (evnt.key.code == sf::Keyboard::Return)
 				{
+					enter.play();
 					if (display != "")
 					{
 						result = stoi(display);
@@ -653,12 +739,14 @@ srand(time(NULL));
 
 		if (playerHP == 0)
 		{
+			check = 0;
 			window.draw(lose);
 		}
 
 		else if (enemyHP == 0)
 		{
-			window.draw(win);
+			check = 0,
+				window.draw(win);
 		}
 
 		window.display();

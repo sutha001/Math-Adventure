@@ -43,7 +43,8 @@ interface ต่างๆ ภายในเกม
 <p align="left"> <img src="images/Interface.png" width="400"></p>
 <p align="left"> <img src="images/WIN.png" width="400"></p>
 <p align="left"> <img src="images/LOSE.png" width="400"></p>
-{media}(youtube::-pdYK9Xg8Jw::420)
+
+
 
 # NOTE!
 
